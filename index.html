@@ -270,6 +270,22 @@
     white-space:nowrap;
   }
 
+  /* ---------- SHOP ---------- */
+  .product{
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+    background:var(--bg-raise); border:1px solid var(--line); padding:32px;
+  }
+  @media (max-width:760px){ .product{grid-template-columns:1fr; gap:28px; padding:20px;} }
+  .product-img{aspect-ratio:1/1; background:var(--bg); border:1px solid var(--line); overflow:hidden;}
+  .product-img img{width:100%; height:100%; object-fit:cover; display:block;}
+  .product h3{font-size:clamp(30px,4vw,44px); margin:12px 0 14px;}
+  .product .price{font-family:'JetBrains Mono',monospace; font-size:22px; color:var(--brass); margin-bottom:6px;}
+  .product .ship{color:var(--ink-dim); font-size:14px; margin-bottom:22px;}
+  .product p.desc{color:var(--ink-dim); font-size:15px; max-width:44ch; margin-bottom:28px;}
+  .product .btn{background:var(--brass); color:var(--bg);}
+  .product .btn:hover, .product .btn:focus-visible{background:var(--ink); border-color:var(--ink);}
+  .secure{display:block; margin-top:14px; font-size:12px; color:var(--ink-dim);}
+
   /* ---------- CONTACT ---------- */
   .contact-inner{
     display:grid;
@@ -339,6 +355,7 @@
       <a href="#services">Services</a>
       <a href="#roster">Roster</a>
       <a href="#catalog">Catalog</a>
+      <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -441,6 +458,29 @@
         <span class="cat-title"><span class="presents">Nu Nocki Group Presents</span> — Fling</span>
         <span class="cat-meta">Jay Gip</span>
         <span class="cat-date">07 / 31 / 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Shop</h2>
+      <span class="count mono">Official merch</span>
+    </div>
+    <div class="product reveal">
+      <div class="product-img">
+        <img src="shop/nng-tee.jpg" alt="Black Nu Nocki Group tee with the gold chess king logo" loading="lazy">
+      </div>
+      <div>
+        <span class="eyebrow">NNG Apparel</span>
+        <h3>Nu Nocki Group Tee</h3>
+        <div class="price">$30.00</div>
+        <div class="ship">+ $5.99 shipping</div>
+        <p class="desc">Black tee with the gold Nu Nocki Group chess king logo. Rep the label.</p>
+        <a class="btn" href="https://buy.stripe.com/9B6eVeaRZdkNbvOcCH0x200" target="_blank" rel="noopener">Buy now</a>
+        <span class="secure mono">Secure checkout by Stripe</span>
       </div>
     </div>
   </div>
