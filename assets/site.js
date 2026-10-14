@@ -13,20 +13,30 @@ const SITE = {
   instagram: 'https://www.instagram.com/gplay215/',
 
   // Streaming profiles
-  spotify: '',
-  appleMusic: '',
-  youtube: '',
+  spotify: 'https://open.spotify.com/artist/4a6RHRdcEw9HMRd12uxAtY',
+  appleMusic: 'https://music.apple.com/us/artist/jay-gip/481744237',
+  youtube: 'https://youtu.be/ITtZr5sXMdo',
 
-  // Latest releases, newest first. Add a link to show a Listen button.
+  // Releases, newest first. The first three show big; the rest show
+  // in the catalog list underneath. Add a link to show a Listen button.
   releases: [
-    { title: 'Finish',    detail: 'Single, July 31, 2026', link: '' },
-    { title: 'Disappear', detail: 'Single, July 31, 2026', link: '' },
-    { title: 'Fling',     detail: 'Single, July 31, 2026', link: '' },
+    { title: 'Disappear', detail: 'Nu Nocki Group Presents. Single, July 31, 2026', link: 'https://music.apple.com/us/album/nu-nocki-group-presents-disappear-single/6793273386' },
+    { title: 'Finish', detail: 'Single, 2025', link: 'https://music.apple.com/us/album/finish-single/1828082868' },
+    { title: 'Fling', detail: 'Single, 2024', link: 'https://music.apple.com/us/album/fling-single/1775321315' },
+    { title: "Don't Understand", detail: '2024', link: 'https://music.apple.com/us/album/dont-understand-single/1766421367' },
+    { title: 'Grand Slams', detail: '2024', link: 'https://music.apple.com/us/album/grand-slams-single/1755010755' },
+    { title: 'Heart Back', detail: '2024', link: 'https://music.apple.com/us/album/heart-back-single/1750701175' },
+    { title: 'Save Yourself', detail: '2023', link: 'https://music.apple.com/us/album/save-yourself/1677205429?i=1677205431' },
+    { title: 'Dreamers Distraction', detail: '2023', link: 'https://music.apple.com/us/album/dreamers-distraction/1674958639?i=1674958641' },
+    { title: 'Bop Like Dat', detail: '2021', link: 'https://music.apple.com/us/album/bop-like-dat/1557331358?i=1557331359' },
+    { title: 'Resilient', detail: '2021', link: 'https://music.apple.com/us/album/resilient/1547557379?i=1547557380' },
+    { title: 'Pro Hop', detail: '2020', link: 'https://music.apple.com/us/album/pro-hop/1543261023?i=1543261024' },
   ],
 
   // Music videos. Add the YouTube video ID (the part after watch?v=).
   // Example: { title: 'Song Name (Official Video)', youtubeId: 'dQw4w9WgXcQ' }
   videos: [
+    { title: 'Jay Gip, latest video', youtubeId: 'ITtZr5sXMdo' },
   ],
 };
 
@@ -54,14 +64,21 @@ const SITE = {
     if (t && t.hidden) a.hidden = true;
   });
 
-  // Releases
+  // Releases: newest three big, the rest as a catalog list
   const rel = $('#releaseList');
-  if (rel) rel.innerHTML = SITE.releases.map(r => `
+  if (rel) {
+    const big = SITE.releases.slice(0, 3), rest = SITE.releases.slice(3);
+    rel.innerHTML = big.map(r => `
     <div class="release">
       <h3 class="display">${esc(r.title)}</h3>
       <p class="meta">Jay Gip. ${esc(r.detail)}</p>
       ${r.link ? `<a class="btn line" href="${esc(r.link)}" target="_blank" rel="noopener">Listen to ${esc(r.title)}</a>` : ''}
-    </div>`).join('');
+    </div>`).join('') + (rest.length ? `
+    <h3 class="catalog-head">More from the catalog</h3>
+    <ul class="catalog">${rest.map(r => `
+      <li>${r.link ? `<a href="${esc(r.link)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title)}<span>${esc(r.detail)}</span></li>`).join('')}
+    </ul>` : '');
+  }
 
   // Videos: show a thumbnail, load the player only when tapped
   const vid = $('#videoList');
