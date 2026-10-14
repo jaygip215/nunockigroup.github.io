@@ -7,7 +7,7 @@ const SITE = {
   laylo: '',
 
   // Booking / business email
-  email: '',
+  email: 'nunocki@gmail.com',
 
   // Social
   instagram: 'https://www.instagram.com/gplay215/',
@@ -36,7 +36,7 @@ const SITE = {
   // Music videos. Add the YouTube video ID (the part after watch?v=).
   // Example: { title: 'Song Name (Official Video)', youtubeId: 'dQw4w9WgXcQ' }
   videos: [
-    { title: 'Jay Gip, latest video', youtubeId: 'ITtZr5sXMdo' },
+    { title: 'Jay Gip - Finish (Official Video)', youtubeId: 'ITtZr5sXMdo' },
   ],
 };
 
