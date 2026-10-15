@@ -215,3 +215,5 @@ footer a:hover{color:var(--bone);}
   header,.no-print,.video button::after{display:none !important;}
   section{padding:24px 0;}
 }
+
+.tm{font-size:.42em;vertical-align:super;letter-spacing:0;margin-left:.08em;font-stretch:100%;}
