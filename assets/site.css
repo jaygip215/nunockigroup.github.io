@@ -129,6 +129,9 @@ section{padding:88px 0;}
 .catalog a:hover{color:var(--gold);}
 .catalog span{color:var(--smoke);font-size:15px;}
 
+.player{margin-top:40px;}
+.player iframe{display:block;border-radius:12px;max-width:820px;}
+
 /* Videos */
 .videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;}
 @media (max-width:400px){.videos{grid-template-columns:1fr;}}

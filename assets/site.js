@@ -6,6 +6,12 @@ const SITE = {
   // Fan sign-up page on Laylo, e.g. 'https://laylo.com/jaygip'
   laylo: '',
 
+  // Pay-what-you-want support link (Stripe)
+  support: 'https://buy.stripe.com/4gM7sM6BJdkN0RadGL0x201',
+
+  // Spotify artist ID for the player on the Music section
+  spotifyArtistId: '4a6RHRdcEw9HMRd12uxAtY',
+
   // Booking / business email
   email: 'nunocki@gmail.com',
 
@@ -79,6 +85,12 @@ const SITE = {
       <li>${r.link ? `<a href="${esc(r.link)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title)}<span>${esc(r.detail)}</span></li>`).join('')}
     </ul>` : '');
   }
+
+  // Spotify player
+  const sp = $('#spotifyPlayer');
+  if (sp && SITE.spotifyArtistId) {
+    sp.innerHTML = `<iframe title="Jay Gip on Spotify" src="https://open.spotify.com/embed/artist/${esc(SITE.spotifyArtistId)}?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+  } else if (sp) { sp.hidden = true; }
 
   // Videos: show a thumbnail, load the player only when tapped
   const vid = $('#videoList');
